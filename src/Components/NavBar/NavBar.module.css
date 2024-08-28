@@ -1,0 +1,35 @@
+.conteinerNavBar{
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../Images/Marvel\ Comics\ Pages\ Pattern\ Postcard\ _\ Zazzle.jpeg');
+    justify-items: center;
+}
+.conteinerButton{
+   display: flex;
+   height: 50%;
+    margin-right: 3em;
+}
+ .conteinerSearchBar{
+   display: flex;
+    height: 50%;
+    margin-left: 3em;
+    padding: 0;
+ }
+
+ .button{
+    height: 3em;
+    width: 5em;
+    margin-right: 1em;    
+    border: solid 2px;
+    border-color: rgb(81, 46, 3);
+    cursor: pointer;
+    font-family:cursive;
+    justify-content: center;
+    align-items: center;
+    color: rgb(81, 46, 3);
+    border-radius: 15px;
+    opacity: 90%;
+    background: rgb(196, 181, 133);
+ }

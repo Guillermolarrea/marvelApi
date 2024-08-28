@@ -1,17 +1,18 @@
 import React from 'react'
 import Cards from '../../Cards/Cards'
 import NavBar from '../../NavBar/NavBar'
+import s from './Home.module.css'
 
-function Home({avenger, search}) {
-    console.log(avenger)
+function Home({search}) {
+    
 
     return (
-        <div>
-            <div>
-                {<NavBar avenger= {avenger}/>}
+        <div className={s.conteinerHome}>
+            <div className={s.conteinerNavBar}>
+                <NavBar/>
             </div>
-            <div>
-                {<Cards avenger= {avenger} search={search} />}
+            <div className={s.conteinerCards}>
+                <Cards search={search} />
             </div>
         </div>
     )

@@ -1,0 +1,14 @@
+.conteinerCards{
+    display: grid;
+    grid-template-columns:repeat(3, auto);
+    background-color: bisque;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteinerGral{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    display: grid;
+}

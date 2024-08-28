@@ -1,0 +1,12 @@
+.conteinerDetails {
+  background-color: bisque;
+  margin-top: 0%;
+  padding: 3%;
+  justify-items: center;
+  text-align: center;
+}
+.images{
+    height: 30em;
+    width: 28em;
+    border-radius: 15px;
+}

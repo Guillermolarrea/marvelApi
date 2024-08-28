@@ -1,35 +1,39 @@
 import React, { useEffect, useState } from 'react'
-import fondo from "../../../Images/fondo marvel.jpg"
 import { Link } from 'react-router-dom'
+import s from './Landing.module.css'
 
 
-function Landing({apiAvenger, avenger}) {
+function Landing({ apiAvenger, newAvenger }) {
 
-  const [isButtonDisabled, setIsButtonDisabled ]= useState(true);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [option, setOption] = useState("")
-//let isButtonDisabled = true
-useEffect(()=>{
-  if (avenger.length === 0 ){
-    setIsButtonDisabled (true)
-    setOption("wait while the superheroes prepare")
-  }else{
-    setIsButtonDisabled (false);
-    setOption("Press Enter")
-  }
+  const av = JSON.parse(localStorage.getItem(`avenger`))
+  // const ave = av[0]
 
-},[avenger])
+  //let isButtonDisabled = true
+  useEffect(() => {
+    if (av.character.length === 0) {
+      setIsButtonDisabled(true)
+      setOption("wait while the superheroes prepare")
+    } else {
+      setIsButtonDisabled(false);
+      setOption("Press Enter")
+    }
 
-  useEffect(()=>{
+  }, [av.character])
+
+  useEffect(() => {
     apiAvenger()
-  },[])
+  }, [])
 
   return (
-    <div>
-      <img src={fondo} alt="imagen fondo landing" />
-      <h3>{option}</h3>
-      <Link to={`/home`}>
-        <button disabled={isButtonDisabled}>Enter</button>
-      </Link>
+    <div className={s.fondo}>
+      <div className={s.conteinerButton}>
+        <Link to={`/home`}>
+          <button className={s.button} disabled={isButtonDisabled}>Enter</button>
+        </Link>
+        <h3 className={s.option}>{option}</h3>
+      </div>
     </div>
   )
 }

@@ -1,0 +1,9 @@
+.conteinerNavBar{
+    height: 5em;
+}
+.conteinerCards{
+    display: grid;
+}
+.conteinerHome{
+    display: block;
+}

@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import s from './searchBar.module.css'
 
 const SearchBar = () => {
 
@@ -8,7 +9,7 @@ const SearchBar = () => {
   const [suggestions, setSuggestions] = useState([]);
  
   const av = JSON.parse(localStorage.getItem(`avenger`))
-  const ave = av[0]
+  const ave = av.character
   console.log(ave)
 
   // Manejar el cambio en el input
@@ -31,16 +32,18 @@ const SearchBar = () => {
 
   return (
     <div>
+      <button className={s.button}>Search</button>
       <input
+      className={s.imput}
         type="text"
         value={query}
         onChange={handleChange}
         placeholder="Search..."
       />
-      <ul>
+      <ul className={s.ulImput}>
         {suggestions.map((suggestion) => (
-            <Link to= {`/details/${suggestion.id}`}>
-          <li key={suggestion.id}>{JSON.stringify(suggestion.name, null, 2)}</li>
+            <Link key={suggestion.id} to= {`/details/${suggestion.id}`}>
+          <li className={s.liOption} key={suggestion.id}>{JSON.stringify(suggestion.name, null, 2)}</li>
             </Link>
         ))}
       </ul>

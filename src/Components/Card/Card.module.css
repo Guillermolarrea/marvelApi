@@ -1,0 +1,17 @@
+.images{
+    height: 20em;
+    width: 18em;
+    border-radius: 15px;
+}
+
+.conteinerCard{
+    height: 25em;
+    width: 25em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    margin: 2em, 2em, 2em, 2em;
+}
+

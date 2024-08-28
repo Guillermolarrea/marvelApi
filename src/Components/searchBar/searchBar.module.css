@@ -1,0 +1,50 @@
+.imput{
+    height: 2.7em;
+    width: 20em;
+    margin-right: 1em;    
+    border: solid 2px;
+    border-color: rgb(81, 46, 3);
+    cursor: pointer;
+    font-family:cursive;
+    justify-content: center;
+    align-items: center;
+    color: rgb(81, 46, 3);
+    border-radius: 15px;
+    opacity: 90%;
+    background: rgb(196, 181, 133);
+}
+
+.button{
+    height: 3em;
+    width: 5em;
+    margin-right: 1em;    
+    border: solid 2px;
+    border-color: rgb(81, 46, 3);
+    cursor: pointer;
+    font-family:cursive;
+    justify-content: center;
+    align-items: center;
+    color: rgb(81, 46, 3);
+    border-radius: 15px;
+    opacity: 90%;
+    background: rgb(196, 181, 133);
+ }
+
+ .ulImput{
+    width: 15em;
+    margin-left: 3em;
+ }
+ 
+ .liOption{
+    background-color: whitesmoke;
+    justify-content: end;
+    align-items: end;
+    text-align: center;
+    font-size: medium;
+    color: black;
+    text-decoration: none;
+    width: 15em;
+    position: relative;
+    list-style: none;
+    opacity: 75%;
+ }
