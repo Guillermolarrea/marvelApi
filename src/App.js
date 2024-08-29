@@ -5,7 +5,8 @@ import Landing from './Components/View/Landing/Landing';
 import Home from './Components/View/Home/Home';
 import Details from './Components/View/Details/Details';
 import About from './Components/View/About/About';
-import Comics from './Components/Comics/Comics';
+import Comics from './Components/View/Comics/Comics';
+import Cards from './Components/View/Cards/Cards';
 
 
 // const myKey = 'd56e113cafc45472bab8a9e33ad471f65d1b5f84';
@@ -46,7 +47,7 @@ function App() {
   }
 
 
-  const search = (id) =>{
+  const searchCharacter = (id) =>{
    let data = avenger.character.filter((a) => a.id === parseInt(id))
   //  console.log(data)
       if(data.length > 0){return data
@@ -55,15 +56,24 @@ function App() {
     };
   }
   
+  const searchComics = (id) =>{
+    let data = avenger.comics.filter((a) => a.id === parseInt(id))
+   //  console.log(data)
+       if(data.length > 0){return data
+     }else {
+       return `hola`
+     };
+   }
  
   return (
      <div>
       <Routes>
         <Route path= {`/`} element={<Landing apiAvenger= {apiAvenger} newAvenger={newAvenger}/>}/>
-        <Route path={`/details/:id`}  element ={<Details  search={search}/>}/>
-        <Route path={`/home`} element={<Home search={search}/>}/>
+        <Route path={`/details/:type/:id`}  element ={<Details  searchCharacter={searchCharacter} searchComics={searchComics}/>}/>
+        <Route path={`/home`} element={<Home search={searchCharacter}/>}/>
         <Route path={`/about`} element={<About/>}/>
-        <Route path={`/comics`} element={<Comics/>} search={search}/>
+        <Route path={`/comics`} element={<Comics search={searchComics}/>}/>
+        <Route path={`/cards`} element= {<Cards search={searchCharacter}/>} />
       </Routes>
     </div>
   );

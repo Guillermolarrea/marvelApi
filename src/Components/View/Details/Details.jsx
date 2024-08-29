@@ -3,11 +3,19 @@ import NavBar from '../../NavBar/NavBar';
 import s from './Details.module.css'
 
 
-function Details({ search }) {
+function Details({ searchComics, searchCharacter }) {
 
-  const id = useParams()
+  const {type, id} = useParams()
+  console.log(type, id)
 
-  let data = search(id.id)
+  let data 
+  if (type === `cards`) {
+    data = searchCharacter(id)
+    }else if (type === `comics`){
+      data = searchComics(id)
+    }
+    console.log(data)
+
 
   return (
     <div>

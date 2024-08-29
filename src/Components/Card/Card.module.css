@@ -7,7 +7,7 @@
 .conteinerCard{
     height: 25em;
     width: 25em;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: center;
     justify-items: center;
