@@ -7,73 +7,138 @@ import Details from './Components/View/Details/Details';
 import About from './Components/View/About/About';
 import Comics from './Components/View/Comics/Comics';
 import Cards from './Components/View/Cards/Cards';
-
-
-// const myKey = 'd56e113cafc45472bab8a9e33ad471f65d1b5f84';
+import Creators from './Components/View/Creators/Creators';
+const apiKey = process.env.REACT_APP_API_KEY;
+const hashKey = process.env.REACT_APP_HASH_KEY;
 
 function App() {
-  const [newAvenger, setAvenger]= useState({
+  const [newAvenger, setAvenger] = useState({
     character: [],
     comics: [],
     creators: [],
     events: [],
     series: [],
-    stories: []
+    stories: [],
   });
-  console.log(newAvenger)
-  localStorage.setItem(`avenger`, JSON.stringify(newAvenger))
-  
-  const avenger = JSON.parse(localStorage.getItem(`avenger`)) 
-  //const apiKey = '7141e3accc16a86b42a08f3627ca0401'
+  console.log(newAvenger);
+  localStorage.setItem(`avenger`, JSON.stringify(newAvenger));
 
-  let allCharacter 
+  const avenger = JSON.parse(localStorage.getItem(`avenger`));
+
+  let allCharacter;
   const apiAvenger = () => {
-    fetch(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=7141e3accc16a86b42a08f3627ca0401&hash=5674cf7351650a8d4686d756e6be22d4`)
-    .then(resp => resp.json())
-    .then((r) => {
-      if(r !== undefined){
-        allCharacter = r.data.results;
-        //console.log(character)
-        setAvenger((newAvenger) =>({...newAvenger, character: allCharacter}))
-      }      
-    })
-    fetch(`http://gateway.marvel.com/v1/public/comics?ts=1&apikey=7141e3accc16a86b42a08f3627ca0401&hash=5674cf7351650a8d4686d756e6be22d4`)
-    .then(resp=> resp.json())
-    .then((r)=>{
-      if(r !== undefined){
-        setAvenger((newAvenger)=>({...newAvenger, comics: r.data.results}))
-      }
-    })
-  }
+    fetch(
+      `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${apiKey}&hash=${hashKey}`
+    )
+      .then((resp) => resp.json())
+      .then((r) => {
+        if (r !== undefined) {
+          allCharacter = r.data.results;
+          //console.log(character)
+          setAvenger((newAvenger) => ({
+            ...newAvenger,
+            character: allCharacter,
+          }));
+        }
+      });
+    fetch(
+      `http://gateway.marvel.com/v1/public/comics?ts=1&apikey=${apiKey}&hash=${hashKey}`
+    )
+      .then((resp) => resp.json())
+      .then((r) => {
+        if (r !== undefined) {
+          setAvenger((newAvenger) => ({
+            ...newAvenger,
+            comics: r.data.results,
+          }));
+        }
+      });
+    fetch(
+      `http://gateway.marvel.com/v1/public/creators?ts=1&apikey=${apiKey}&hash=${hashKey}`
+    )
+      .then((creators) => creators.json())
+      .then((creators) => {
+        if (creators !== undefined) {
+          setAvenger((newAvenger) => ({
+            ...newAvenger,
+            creators: creators.data.results,
+          }));
+        }
+      });
+  };
 
+  const searchCharacter = (id) => {
+    let data = avenger.character.filter((a) => a.id === parseInt(id));
+    //  console.log(data)
+    if (data.length > 0) {
+      return data;
+    } else {
+      return console.error('No character found');
+    }
+  };
 
-  const searchCharacter = (id) =>{
-   let data = avenger.character.filter((a) => a.id === parseInt(id))
-  //  console.log(data)
-      if(data.length > 0){return data
-    }else {
-      return `hola`
-    };
-  }
-  
-  const searchComics = (id) =>{
-    let data = avenger.comics.filter((a) => a.id === parseInt(id))
-   //  console.log(data)
-       if(data.length > 0){return data
-     }else {
-       return `hola`
-     };
-   }
- 
+  const searchComics = (id) => {
+    let data = avenger.comics.filter((a) => a.id === parseInt(id));
+    //  console.log(data)
+    if (data.length > 0) {
+      return data;
+    } else {
+      return console.error('No comics found');
+    }
+  };
+
+  const searchCreator = (id) => {
+    let data = avenger.creators.filter(
+      (creator) => creator.id === parseInt(id)
+    );
+    if (data.length > 0) {
+      return data;
+    } else {
+      return console.error('No creator found');
+    }
+  };
+
   return (
-     <div>
+    <div>
       <Routes>
-        <Route path= {`/`} element={<Landing apiAvenger= {apiAvenger} newAvenger={newAvenger}/>}/>
-        <Route path={`/details/:type/:id`}  element ={<Details  searchCharacter={searchCharacter} searchComics={searchComics}/>}/>
-        <Route path={`/home`} element={<Home search={searchCharacter}/>}/>
-        <Route path={`/about`} element={<About/>}/>
-        <Route path={`/comics`} element={<Comics search={searchComics}/>}/>
-        <Route path={`/cards`} element= {<Cards search={searchCharacter}/>} />
+        <Route
+          path={`/`}
+          element={
+            <Landing
+              apiAvenger={apiAvenger}
+              newAvenger={newAvenger}
+            />
+          }
+        />
+        <Route
+          path={`/details/:type/:id`}
+          element={
+            <Details
+              searchCharacter={searchCharacter}
+              searchComics={searchComics}
+            />
+          }
+        />
+        <Route
+          path={`/home`}
+          element={<Home search={searchCharacter} />}
+        />
+        <Route
+          path={`/about`}
+          element={<About />}
+        />
+        <Route
+          path={`/comics`}
+          element={<Comics search={searchComics} />}
+        />
+        <Route
+          path={`/cards`}
+          element={<Cards search={searchCharacter} />}
+        />
+        <Route
+          path={'/creators'}
+          element={<Creators search={searchCreator} />}
+        />
       </Routes>
     </div>
   );

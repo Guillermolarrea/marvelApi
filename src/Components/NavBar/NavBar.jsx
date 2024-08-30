@@ -15,6 +15,9 @@ const NavBar = () => {
                 <Link to={`/about`}>
                     <button className={s.button}>About</button>
                 </Link>
+                <Link to={`/creators`}>
+                    <button className={s.button}>Creators</button>
+                </Link>
             </div>
             <div className={s.conteinerSearchBar}>
                 {<SearchBar />}
