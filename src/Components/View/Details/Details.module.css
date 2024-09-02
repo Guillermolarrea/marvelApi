@@ -1,12 +1,35 @@
 .conteinerDetails {
   background-color: bisque;
-  margin-top: 0%;
-  padding: 3%;
+  margin-top: -2em;
+  /* padding: 3%; */
   justify-items: center;
   text-align: center;
+  height: 100%;
 }
 .images{
     height: 30em;
     width: 28em;
     border-radius: 15px;
+}
+.detailsCreators{
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  height: 100%;
+}
+
+.creatorCadaDetails{
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  width: 25em;
+  height: 100%;  
+}
+.nameCreator{
+  height: 1.5em;
+  align-items: center;
+  padding: 1em;
+  font-size: x-large;
 }

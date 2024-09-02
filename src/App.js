@@ -16,7 +16,6 @@ function App() {
     character: [],
     comics: [],
     creators: [],
-    events: [],
     series: [],
     stories: [],
   });
@@ -116,6 +115,7 @@ function App() {
             <Details
               searchCharacter={searchCharacter}
               searchComics={searchComics}
+              searchCreators={searchCreator}
             />
           }
         />

@@ -9,6 +9,9 @@ const NavBar = () => {
                 <Link to={`/home`}>
                     <button className={s.button} >Home</button>
                 </Link>
+                <Link to={`/cards`}>
+                    <button className={s.button} >Characters</button>
+                </Link>
                 <Link to={`/comics`}>
                     <button className={s.button} >Comics</button>
                 </Link>

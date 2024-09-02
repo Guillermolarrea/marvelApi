@@ -1,14 +1,11 @@
-// import { Link } from "react-router-dom"
 import s from './Card.module.css'
 
-const Card = (avenger) => {
+const Card = (data) => {
 
     return (
         <div className={s.conteinerCard}>
-            {/* <Link to={`/details/${avenger.id}`}> */}
-                <h3>{avenger.name}</h3>
-                <img className={s.images} src={avenger.thumbnail.path + "." + avenger.thumbnail.extension} alt="" />
-            {/* </Link> */}
+            <h3>{data.name}</h3>
+            <img className={s.images} src={data.thumbnail.path + "." + data.thumbnail.extension} alt="" />
         </div>
     )
 }
