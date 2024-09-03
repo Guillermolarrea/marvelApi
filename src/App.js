@@ -8,6 +8,7 @@ import About from './Components/View/About/About';
 import Comics from './Components/View/Comics/Comics';
 import Cards from './Components/View/Cards/Cards';
 import Creators from './Components/View/Creators/Creators';
+import Series from './Components/View/Series/Series';
 const apiKey = process.env.REACT_APP_API_KEY;
 const hashKey = process.env.REACT_APP_HASH_KEY;
 
@@ -64,6 +65,18 @@ function App() {
           }));
         }
       });
+      fetch(
+        `http://gateway.marvel.com/v1/public/series?ts=1&apikey=${apiKey}&hash=${hashKey}`
+      )
+        .then((series) => series.json())
+        .then((s) => {
+          if (s !== undefined) {
+            setAvenger((newAvenger) => ({
+              ...newAvenger,
+              series: s.data.results,
+            }));
+          }
+        });
   };
 
   const searchCharacter = (id) => {
@@ -89,6 +102,17 @@ function App() {
   const searchCreator = (id) => {
     let data = avenger.creators.filter(
       (creator) => creator.id === parseInt(id)
+    );
+    if (data.length > 0) {
+      return data;
+    } else {
+      return console.error('No creator found');
+    }
+  };
+
+  const searchSeries = (id) => {
+    let data = avenger.series.filter(
+      (series) => series.id === parseInt(id)
     );
     if (data.length > 0) {
       return data;
@@ -138,6 +162,10 @@ function App() {
         <Route
           path={'/creators'}
           element={<Creators search={searchCreator} />}
+        />
+         <Route
+          path={'/series'}
+          element={<Series search={searchSeries} />}
         />
       </Routes>
     </div>
