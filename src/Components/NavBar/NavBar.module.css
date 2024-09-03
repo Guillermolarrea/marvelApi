@@ -5,6 +5,7 @@
     justify-content: center;
     background-image: url('../../Images/Marvel\ Comics\ Pages\ Pattern\ Postcard\ _\ Zazzle.jpeg');
     justify-items: center;
+    width: 100%;
 }
 .conteinerButton{
    display: flex;
