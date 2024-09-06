@@ -29,8 +29,7 @@
     font-family:cursive;
     justify-content: center;
     align-items: center;
-    color: rgb(81, 46, 3);
+    color: white;
     border-radius: 15px;
-    opacity: 90%;
-    background: rgb(196, 181, 133);
+    background: black;
  }

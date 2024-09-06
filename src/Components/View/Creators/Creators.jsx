@@ -6,31 +6,17 @@ import s from '../../StylosCompartidos/conteinersCards.module.css'
 import { Link } from 'react-router-dom';
 
 
-function Creators({ searchCreator }) {
+
+function Creators({ type }) {
 
   const crea = JSON.parse(localStorage.getItem('avenger'))
-  const creator = []
 
-  crea.creators.forEach(c => {
-    if (c.fullName[0] !== '#') {
-      creator.push(c)
-    } 
-  });
-  crea.creators.forEach((c) => {
-    if (c.fullName === "#O") {
-      c.fullName = "Jhon Smith"
-      creator.push(c);
-    } else if (c.fullName === "#X") {
-      c.fullName = "Joe Pepper"
-      creator.push(c)
-    }
-  })
 
   return (
     <div className={s.conteinerGral}>
-      <NavBar />
+      <NavBar type={type}/>
       <div className={s.conteinerCreatorsCards}>
-        {creator.map(c => (
+        {crea.creators.map(c => (
           <Link to={`/details/creators/${c.id}`}>
             <CardCreators
               key={c.id}

@@ -13,7 +13,7 @@ function Details({ searchComics, searchCharacter, searchCreators }) {
   if (type === `cards`) {
     data = searchCharacter(id)
     return (
-      <div>
+      <div className={s.conteinerGral}>
         <NavBar />
         <div className={s.conteinerDetails}>
           <h2>{data[0].name}</h2>
@@ -26,7 +26,7 @@ function Details({ searchComics, searchCharacter, searchCreators }) {
   } else if (type === `comics`) {
     data = searchComics(id)
     return (
-      <div>
+      <div className={s.conteinerGral}>
         <NavBar />
         <div className={s.conteinerDetails}>
           <h2>{data[0].name}</h2>
@@ -39,7 +39,7 @@ function Details({ searchComics, searchCharacter, searchCreators }) {
     data = searchCreators(id)
 
     return (
-      <div>
+      <div className={s.conteinerGral}>
         <NavBar />
         <div className={s.conteinerDetails}>
           <h2 className={s.nameCreator}>{data[0].fullName}</h2>

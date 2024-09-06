@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import SearchBar from "../searchBar/searchBar"
 import s from './NavBar.module.css'
 
-const NavBar = () => {
+const NavBar = ({type}) => {
     return (
         <div className={s.conteinerNavBar}>
             <div className={s.conteinerButton}>
@@ -26,7 +26,7 @@ const NavBar = () => {
                 </Link>
             </div>
             <div className={s.conteinerSearchBar}>
-                {<SearchBar />}
+                {<SearchBar type={type} />}
             </div>
         </div>
     )

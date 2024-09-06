@@ -6,7 +6,7 @@ import NavBar from "../../NavBar/NavBar";
 
 
 
-const Cards = ({ search }) => {
+const Cards = ({ search, type }) => {
 
     const av = JSON.parse(localStorage.getItem(`avenger`))
     const ave = []
@@ -19,7 +19,7 @@ const Cards = ({ search }) => {
 
     return (
         <div>
-            <NavBar/>
+            <NavBar type= {type}/>
             <div className={s.conteinerCards}>
                 {ave.map((c) =>
                     <Link key={c.id} to={`/details/cards/${c.id}`}>

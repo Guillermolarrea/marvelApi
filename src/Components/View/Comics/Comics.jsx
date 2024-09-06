@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 
 
-function Comics({ search }) {
+function Comics({ type }) {
   let com = JSON.parse(localStorage.getItem('avenger'))
   let comic = []
   com.comics.forEach(c => {
@@ -15,10 +15,11 @@ function Comics({ search }) {
       comic.push(c)
     }
   });
+  console.log(type)
 
   return (
     <div className={s.conteinerGral}>
-      <NavBar />
+      <NavBar type={type} />
       <div className={s.conteinerCards}>
         {comic.map((c) =>
           <Link key={c.id} to={`/details/comics/${c.id}`}>
@@ -26,7 +27,6 @@ function Comics({ search }) {
               id={c.id}
               name={c.title}
               thumbnail={c.thumbnail}
-              search={search(c.id)}
             />
           </Link>
         )}
