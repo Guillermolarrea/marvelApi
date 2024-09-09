@@ -17,9 +17,8 @@ function Creators({ type }) {
       <NavBar type={type}/>
       <div className={s.conteinerCreatorsCards}>
         {crea.creators.map(c => (
-          <Link to={`/details/creators/${c.id}`}>
+          <Link key={c.id} to={`/details/creators/${c.id}`}>
             <CardCreators
-              key={c.id}
               name={c.fullName}
             />
           </Link>

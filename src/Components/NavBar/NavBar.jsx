@@ -15,14 +15,14 @@ const NavBar = ({type}) => {
                 <Link to={`/comics`}>
                     <button className={s.button} >Comics</button>
                 </Link>
-                <Link to={`/about`}>
-                    <button className={s.button}>About</button>
-                </Link>
                 <Link to={`/creators`}>
                     <button className={s.button}>Creators</button>
                 </Link>
                 <Link to={`/series`}>
                     <button className={s.button}>Series</button>
+                </Link>
+                <Link to={`/about`}>
+                    <button className={s.button}>About</button>
                 </Link>
             </div>
             <div className={s.conteinerSearchBar}>

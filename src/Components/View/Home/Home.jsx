@@ -8,7 +8,7 @@ function Home({ search }) {
 
     return (
         <div className={s.conteinerHome}>
-            <div className={s.conteinerNavBar}>
+            <div>
                 <NavBar />
             </div>
             <div className={s.conteinerCards}>

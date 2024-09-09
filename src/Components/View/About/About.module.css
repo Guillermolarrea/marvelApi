@@ -1,0 +1,11 @@
+.conteinerAbout{
+    background-color: antiquewhite;
+    text-align: center;
+    padding: 5em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.contact{
+    grid-column: 1/4;
+}

@@ -29,7 +29,7 @@ function Details({ searchComics, searchCharacter, searchCreators }) {
       <div className={s.conteinerGral}>
         <NavBar />
         <div className={s.conteinerDetails}>
-          <h2>{data[0].name}</h2>
+          <h2>{data[0].title}</h2>
           <img className={s.images} src={data[0].thumbnail.path + "." + data[0].thumbnail.extension} alt="" />
           <h1>esto es comics</h1>
         </div>

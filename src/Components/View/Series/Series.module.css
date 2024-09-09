@@ -6,7 +6,6 @@
   padding-top: 1em;
   align-items: center;
   justify-content: center;
-  /* background-color: antiquewhite; */
 }
 
 .cadaSerie {
@@ -56,4 +55,5 @@
     text-align: center;
     font-weight: bolder;
     text-decoration: underline;
+    padding-top: 3em;
 }

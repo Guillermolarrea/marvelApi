@@ -131,7 +131,7 @@ function App() {
       return console.error('No creator found');
     }
   };
-  
+
   const searchStories = (id) => {
     let data = avenger.stories.filter((stories) => stories.id === parseInt(id));
     if (data.length > 0) {
@@ -168,20 +168,31 @@ function App() {
           element={<Home search={searchCharacter} />}
         />
         <Route
-          path={`/about`}
-          element={<About />}
-        />
-        <Route
           path={`/comics`}
-          element={<Comics type='comics' search={searchComics} />}
+          element={
+            <Comics
+              type="comics"
+              search={searchComics}
+            />
+          }
         />
         <Route
           path={`/cards`}
-          element={<Cards type='cards' search={searchCharacter} />}
+          element={
+            <Cards
+              type="cards"
+              search={searchCharacter}
+            />
+          }
         />
         <Route
           path={'/creators'}
-          element={<Creators type='creators' search={searchCreator} />}
+          element={
+            <Creators
+              type="creators"
+              search={searchCreator}
+            />
+          }
         />
         <Route
           path={'/series'}
@@ -190,6 +201,10 @@ function App() {
         <Route
           path={'/stories'}
           element={<Stories search={searchStories} />}
+        />
+        <Route
+          path={`/about`}
+          element={<About />}
         />
       </Routes>
     </div>
